@@ -19,7 +19,7 @@ periodics:
     path_alias: k8s.io/release
   spec:
     containers:
-    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240611-597c402033-master
+    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240625-1dde27f6a9-master
       command:
       - runner.sh
       args:
@@ -52,7 +52,7 @@ periodics:
     path_alias: k8s.io/kops
   spec:
     containers:
-    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240611-597c402033-master
+    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       command:
       - runner.sh
@@ -86,7 +86,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: ''
     test.kops.k8s.io/networking: 'calico'
-    testgrid-dashboards: google-aws, kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
+    testgrid-dashboards: kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
     testgrid-days-of-results: '90'
     testgrid-tab-name: e2e-kops-do-calico-gossip
 - name: e2e-kops-do-calico-dns-none
@@ -108,7 +108,7 @@ periodics:
     path_alias: k8s.io/kops
   spec:
     containers:
-    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240611-597c402033-master
+    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       command:
       - runner.sh
@@ -142,7 +142,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: ''
     test.kops.k8s.io/networking: 'calico'
-    testgrid-dashboards: google-aws, kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
+    testgrid-dashboards: kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
     testgrid-days-of-results: '90'
     testgrid-tab-name: e2e-kops-do-calico-dns-none
 - name: e2e-kops-do-calico-fqdn
@@ -164,7 +164,7 @@ periodics:
     path_alias: k8s.io/kops
   spec:
     containers:
-    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240611-597c402033-master
+    - image: us-central1-docker.pkg.dev/k8s-staging-test-infra/images/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       command:
       - runner.sh
@@ -199,6 +199,6 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: ''
     test.kops.k8s.io/networking: 'calico'
-    testgrid-dashboards: google-aws, kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
+    testgrid-dashboards: kops-k8s-stable, kops-latest, sig-cluster-lifecycle-kops, kops-misc
     testgrid-days-of-results: '90'
     testgrid-tab-name: e2e-kops-do-calico-fqdn

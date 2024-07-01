@@ -15,7 +15,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
         - runner.sh
         args:
@@ -54,7 +54,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
         - "./scripts/ci-build.sh"
         resources:
@@ -84,7 +84,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -100,6 +100,41 @@ presubmits:
     annotations:
       testgrid-dashboards: sig-cluster-lifecycle-cluster-api-provider-azure
       testgrid-tab-name: capz-pr-e2e-main
+      testgrid-alert-email: k8s-infra-staging-cluster-api-azure@kubernetes.io
+  - name: pull-cluster-api-provider-azure-e2e-with-wi-optional # created for WI POC
+    path_alias: "sigs.k8s.io/cluster-api-provider-azure"
+    optional: true
+    decorate: true
+    decoration_config:
+      timeout: 4h
+    skip_if_only_changed: "^docs/|^\\.github/|\\.md$|^(\\.codespellignore|LICENSE|OWNERS|OWNERS_ALIASES|PROJECT|SECURITY_CONTACTS|Tiltfile|Makefile|metadata\\.yaml|netlify\\.toml|tilt-provider\\.json)$"
+    max_concurrency: 5
+    labels:
+      preset-dind-enabled: "true"
+      preset-kind-volume-mounts: "true"
+      preset-azure-anonymous-pull: "true"
+      preset-azure-cred-wi: "true"
+    branches:
+      - ^main$
+    spec:
+      serviceAccountName: prowjob-default-sa
+      containers:
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
+          command:
+            - runner.sh
+          args:
+            - ./scripts/ci-e2e.sh
+          env:
+            - name: GINKGO_FOCUS
+              value: \[REQUIRED\]
+            - name: GINKGO_SKIP
+              value: ""
+          # docker-in-docker needs privileged mode
+          securityContext:
+            privileged: true
+    annotations:
+      testgrid-dashboards: sig-cluster-lifecycle-cluster-api-provider-azure
+      testgrid-tab-name: capz-pr-e2e-main-with-wi-optional
       testgrid-alert-email: k8s-infra-staging-cluster-api-azure@kubernetes.io
   - name: pull-cluster-api-provider-azure-e2e-optional
     path_alias: "sigs.k8s.io/cluster-api-provider-azure"
@@ -119,7 +154,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -154,7 +189,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -190,7 +225,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -220,7 +255,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
         - "runner.sh"
         - "make"
@@ -256,7 +291,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -296,7 +331,7 @@ presubmits:
       path_alias: sigs.k8s.io/cloud-provider-azure
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -337,7 +372,7 @@ presubmits:
       path_alias: sigs.k8s.io/cloud-provider-azure
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -380,7 +415,7 @@ presubmits:
       path_alias: sigs.k8s.io/cloud-provider-azure
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -423,7 +458,7 @@ presubmits:
       path_alias: sigs.k8s.io/cloud-provider-azure
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -472,7 +507,7 @@ presubmits:
       path_alias: sigs.k8s.io/cloud-provider-azure
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -511,7 +546,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -548,7 +583,7 @@ presubmits:
       path_alias: k8s.io/kubernetes
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         args:
           - runner.sh
           - "./scripts/ci-e2e.sh"
@@ -585,7 +620,7 @@ presubmits:
         path_alias: k8s.io/kubernetes
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           args:
             - runner.sh
             - "./scripts/ci-e2e.sh"
@@ -620,7 +655,7 @@ presubmits:
     - ^main$
     spec:
       containers:
-      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+      - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
         command:
           - runner.sh
         args:
@@ -666,7 +701,7 @@ presubmits:
       path_alias: k8s.io/kubernetes
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:
@@ -711,7 +746,7 @@ presubmits:
       path_alias: k8s.io/kubernetes
     spec:
       containers:
-        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-1.29
+        - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-1.29
           command:
             - runner.sh
           args:

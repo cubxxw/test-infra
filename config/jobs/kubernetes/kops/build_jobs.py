@@ -33,7 +33,7 @@ from helpers import ( # pylint: disable=import-error, no-name-in-module
 skip_jobs = [
 ]
 
-image = "gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master"
+image = "gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master"
 
 loader = jinja2.FileSystemLoader(searchpath="./templates")
 
@@ -215,8 +215,6 @@ def build_test(cloud='aws',
         f"kops-k8s-{k8s_version}",
         f"kops-{kops_version or 'latest'}",
     ]
-    if cloud == 'aws':
-        dashboards.extend(['google-aws'])
     if cloud == 'gce':
         dashboards.extend(['kops-gce'])
 

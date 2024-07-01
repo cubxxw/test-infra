@@ -45,7 +45,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -62,7 +62,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: amazonvpc
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-amazon-vpc
 
@@ -109,7 +109,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -126,7 +126,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: calico
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-calico
 
@@ -173,7 +173,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -190,7 +190,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: canal
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-1.27, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-1.27, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-canal
 
@@ -237,7 +237,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -254,7 +254,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: cilium
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-cilium
 
@@ -301,7 +301,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -318,7 +318,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: cilium-etcd
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-cilium-etcd
 
@@ -365,7 +365,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -382,7 +382,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: cilium-eni
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-cilium-eni
 
@@ -429,7 +429,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -446,7 +446,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: flannel
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-1.27, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-1.27, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-flannel
 
@@ -493,7 +493,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -510,7 +510,7 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: kopeio
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-stable, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-kopeio
 
@@ -559,7 +559,7 @@ periodics:
         value: /etc/aws-ssh/aws-ssh-private
       - name: KUBE_SSH_USER
         value: ubuntu
-      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240611-597c402033-master
+      image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20240625-1dde27f6a9-master
       imagePullPolicy: Always
       resources:
         limits:
@@ -576,6 +576,6 @@ periodics:
     test.kops.k8s.io/kops_channel: alpha
     test.kops.k8s.io/kops_version: latest
     test.kops.k8s.io/networking: kube-router
-    testgrid-dashboards: google-aws, kops-distro-u2204, kops-k8s-ci, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
+    testgrid-dashboards: kops-distro-u2204, kops-k8s-ci, kops-latest, kops-network-plugins, sig-cluster-lifecycle-kops
     testgrid-days-of-results: '90'
     testgrid-tab-name: kops-aws-cni-kuberouter
