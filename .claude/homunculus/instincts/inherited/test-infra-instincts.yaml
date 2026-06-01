@@ -1,0 +1,564 @@
+# Instincts generated from https://github.com/cubxxw/test-infra
+# Generated: 2026-06-01T20:42:55.929Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: test-infra-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Commit Length
+
+## Action
+
+Write moderate-length commit messages (~53 characters)
+
+## Evidence
+
+- Average commit message length: 53 chars
+- Based on 14 commits
+
+---
+id: test-infra-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: test-infra-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: test-infra-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: test-infra-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: test-infra-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: **/api/**
+
+---
+id: test-infra-workflow-prow-autobump-update
+trigger: "when doing prow autobump update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Prow Autobump Update
+
+## Action
+
+Follow the prow-autobump-update workflow:
+1. Update Prow image version references in multiple job and config files.
+2. Commit changes with a 'Bumping Prow' message.
+3. Merge an autobump pull request with the updated files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: config/jobs/kubernetes/sig-k8s-infra/trusted/sig-k8s-infra-prow.yaml, config/jobs/kubernetes/sig-k8s-infra/trusted/sig-k8s-infra-test-infra.yaml, config/jobs/kubernetes/sig-k8s-infra/trusted/sig-testing-branchprotector.yaml
+
+---
+id: test-infra-workflow-add-or-update-jobset-e2e-jobs
+trigger: "when doing add or update jobset e2e jobs"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Add Or Update Jobset E2e Jobs
+
+## Action
+
+Follow the add-or-update-jobset-e2e-jobs workflow:
+1. Add or update multiple YAML files for jobset periodics and presubmits for main and release branches.
+2. Commit changes with descriptive message referencing the new version or jobset update.
+3. Merge pull request to apply the new jobs.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: config/jobs/kubernetes-sigs/jobset/jobset-periodics-main.yaml, config/jobs/kubernetes-sigs/jobset/jobset-periodics-release-0-11.yaml, config/jobs/kubernetes-sigs/jobset/jobset-periodics-release-0-12.yaml
+
+---
+id: test-infra-workflow-update-label-sync-labels
+trigger: "when doing update label sync labels"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Update Label Sync Labels
+
+## Action
+
+Follow the update-label-sync-labels workflow:
+1. Edit label_sync/labels.yaml to add or modify label definitions.
+2. Update label_sync/labels.md to document the label changes.
+3. Commit and merge the changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: label_sync/labels.md, label_sync/labels.yaml
+
+---
+id: test-infra-workflow-add-or-update-presubmit-job-for-provider
+trigger: "when doing add or update presubmit job for provider"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Add Or Update Presubmit Job For Provider
+
+## Action
+
+Follow the add-or-update-presubmit-job-for-provider workflow:
+1. Create or update presubmit job YAML file for the provider and release.
+2. Commit the change with a descriptive message.
+3. Merge the pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: config/jobs/kubernetes-sigs/cluster-api-provider-ibmcloud/cluster-api-provider-ibmcom-presubmits-release-0.14.yaml, config/jobs/kubernetes-sigs/sig-windows/release-master-windows.yaml
+
+---
+id: test-infra-workflow-update-openshift-testgrid-definitions
+trigger: "when doing update openshift testgrid definitions"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cubxxw/test-infra
+---
+
+# Test Infra Workflow Update Openshift Testgrid Definitions
+
+## Action
+
+Follow the update-openshift-testgrid-definitions workflow:
+1. Update the relevant testgrid YAML file under config/testgrids/openshift.
+2. Commit with a message referencing auto-testgrid-generator or manual update.
+3. Merge the pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: config/testgrids/openshift/redhat-openshift-ocp-release-4.22-informing.yaml
+
+---
+id: test-infra-instinct-file-naming
+trigger: "When creating a new file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct File Naming
+
+## Action
+
+Name the file using kebab-case (e.g., my-file-name.ts)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: test-infra-instinct-function-naming
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Function Naming
+
+## Action
+
+Name the function using camelCase (e.g., myFunction)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: test-infra-instinct-class-naming
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase (e.g., MyClass)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: test-infra-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE (e.g., MY_CONSTANT)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: test-infra-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: test-infra-instinct-export-style
+trigger: "When exporting from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: test-infra-instinct-test-location
+trigger: "When adding tests for a feature"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Test Location
+
+## Action
+
+Place test files in a separate location from source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+
+---
+id: test-infra-instinct-feature-test-pattern
+trigger: "When implementing a new feature"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Feature Test Pattern
+
+## Action
+
+Add tests for the feature after implementation and before documentation update
+
+## Evidence
+
+- feature-development workflow commitSequence
+- Example: Add tests for feature
+
+---
+id: test-infra-instinct-commit-format-add
+trigger: "When committing a new feature or job"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Commit Format Add
+
+## Action
+
+Start the commit message with 'Add' followed by a concise description (e.g., Add presubmit jobs for CAPIBM release-0.14)
+
+## Evidence
+
+- Seen in commit: Add presubmit jobs for CAPIBM release-0.14
+- Pattern in commits.examples
+
+---
+id: test-infra-instinct-commit-format-update
+trigger: "When updating configuration or jobs"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Commit Format Update
+
+## Action
+
+Start the commit message with 'Update' followed by the target (e.g., Update Prow image version references...)
+
+## Evidence
+
+- Seen in commit: Update Prow image version references in multiple job and config files.
+- Pattern in commits.examples
+
+---
+id: test-infra-instinct-commit-format-merge
+trigger: "When merging a pull request"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Commit Format Merge
+
+## Action
+
+Use the format 'Merge pull request #[PR_NUMBER] from [branch]'
+
+## Evidence
+
+- Seen in commit: Merge pull request #37154 from helayoty/helayoty/update-was-label
+- Pattern in commits.examples
+
+---
+id: test-infra-instinct-prow-autobump-update
+trigger: "When a new Prow version is released and needs to be rolled out to the CI system"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Prow Autobump Update
+
+## Action
+
+Update Prow image version references in all relevant job and config files, commit with 'Bumping Prow', and merge an autobump pull request
+
+## Evidence
+
+- prow-autobump-update workflow
+- Commits: Bumping Prow
+- Files: config/prow/config.yaml, etc.
+
+---
+id: test-infra-instinct-add-or-update-jobset-e2e-jobs
+trigger: "When a new Kubernetes version is released or jobset needs new/updated e2e jobs"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Add Or Update Jobset E2e Jobs
+
+## Action
+
+Add or update jobset e2e YAMLs for main and release branches, commit with descriptive message, and merge PR
+
+## Evidence
+
+- add-or-update-jobset-e2e-jobs workflow
+- Files: config/jobs/kubernetes-sigs/jobset/jobset-periodics-main.yaml, etc.
+
+---
+id: test-infra-instinct-update-label-sync-labels
+trigger: "When a new label needs to be added or an existing label updated for GitHub repos"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Update Label Sync Labels
+
+## Action
+
+Edit label_sync/labels.yaml and label_sync/labels.md, commit, and merge changes
+
+## Evidence
+
+- update-label-sync-labels workflow
+- Files: label_sync/labels.yaml, label_sync/labels.md
+
+---
+id: test-infra-instinct-add-or-update-presubmit-job-for-provider
+trigger: "When a new release branch is created or presubmit jobs need to be added/updated for a provider"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Add Or Update Presubmit Job For Provider
+
+## Action
+
+Create or update presubmit job YAML for the provider and release, commit with descriptive message, and merge PR
+
+## Evidence
+
+- add-or-update-presubmit-job-for-provider workflow
+- Files: config/jobs/kubernetes-sigs/cluster-api-provider-ibmcloud/cluster-api-provider-ibmcom-presubmits-release-0.14.yaml
+
+---
+id: test-infra-instinct-update-openshift-testgrid-definitions
+trigger: "When OpenShift testgrid definitions change or need to be regenerated"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: cubxxw/test-infra
+---
+
+# Test Infra Instinct Update Openshift Testgrid Definitions
+
+## Action
+
+Update the relevant testgrid YAML file under config/testgrids/openshift, commit referencing auto-testgrid-generator or manual update, and merge PR
+
+## Evidence
+
+- update-openshift-testgrid-definitions workflow
+- Files: config/testgrids/openshift/redhat-openshift-ocp-release-4.22-informing.yaml
+
