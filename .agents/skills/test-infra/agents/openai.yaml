@@ -1,0 +1,6 @@
+interface:
+  display_name: "Test Infra"
+  short_description: "Repo-specific patterns and workflows for test-infra"
+  default_prompt: "Use the test-infra repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
